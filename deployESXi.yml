@@ -1,0 +1,5 @@
+---
+- include: playbooks/deployVC.yml tags=deployvc
+- include: playbooks/prepareISOInstaller.yml tags=prepare
+- include: playbooks/deployNestedESXi.yml tags=deployvesxi
+- include: playbooks/configureNestedESXi.yml tags=configvesxi

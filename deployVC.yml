@@ -1,0 +1,3 @@
+---
+- include: playbooks/deployVC.yml tags=deployvc
+- include: playbooks/addNestedESXi.yml

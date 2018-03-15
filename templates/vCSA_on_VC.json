@@ -1,0 +1,45 @@
+{
+    "__version": "2.3.0",
+    "__comments": "Sample template to deploy a vCenter Server Appliance with an external Platform Services Controller on a vCenter Server instance.",
+    "new.vcsa": {
+        "vc": {
+            "hostname": "{{ vc_mng.host }}",
+            "username": "{{ vc_mng.user }}",
+            "password": "{{ vc_mng.password }}",
+            "datastore": "{{ vcenter1.datastore }}",
+            "deployment.network": "{{ vcenter1.network }}",
+            "datacenter": [
+                "{{ vcenter1.datacenter }}"
+            ],
+            "target": [
+                "{{ vcenter1.cluster }}"
+            ]
+        },
+        "appliance": {
+            "thin.disk.mode": true,
+            "deployment.option": "management-small",
+            "name": "{{ vcenter1.name }}"
+        },
+        "network": {
+            "ip.family": "ipv4",
+            "mode": "static",
+            "ip": "{{ vcenter1.ip }}",
+            "dns.servers": [
+                "{{ dns1 }}"
+            ],
+            "system.name": "{{ vcenter1.name }}",
+            "gateway": "{{ vcenter1.gw }}",
+            "prefix": "{{ vcenter1.mask }}"
+        },
+        "os": {
+            "password": "{{ vcenter1.password }}",
+            "ssh.enable": false
+        },
+        "sso": {
+            "password": "{{ vcenter1.password }}",
+            "domain-name": "{{ vcenter1.domain }}",
+            "platform.services.controller": "{{ psc.name }}",
+            "sso.port": 443
+        }
+    }
+}
